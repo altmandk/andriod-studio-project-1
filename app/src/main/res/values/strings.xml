@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Project_1</string>
+    <string name="button_1">enterButton</string>
+    <string name="button_2">addButton</string>
+    <string name="welcome_text">Welcome to my first Android app!</string>
+    <string name="enterNameText">Please enter a first and last name...</string>
+    <string name="enter_name_here">Enter Name Here</string>
+    <string name="entered_text"></string>
+</resources>
