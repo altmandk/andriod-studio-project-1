@@ -14,7 +14,6 @@ public class NameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_name);
-
         EditText EnterName = findViewById(R.id.enterName);
         EnterName.setOnEditorActionListener(editorListener);
     }
@@ -28,23 +27,20 @@ public class NameActivity extends AppCompatActivity {
                 String userInput = EnterName.getText().toString().trim();
 
                 Intent mainIntent = new Intent(NameActivity.this, MainActivity.class);
-                Bundle extras = new Bundle();
 
                 if (userInput.contains(" ") && !userInput.matches(".*\\d.*")) {
-                    String resultCode = "RESULT_OK";
-                    extras.putString("firstInput", userInput);
-                    extras.putString("result", resultCode);
-                    mainIntent.putExtras(extras);
+                    mainIntent.putExtra("firstInput", userInput);
+                    setResult(RESULT_OK, mainIntent);
+                    finish();
                 }
                 else {
-                    String resultCode = "RESULT_CANCELED";
-                    extras.putString("firstInput", userInput);
-                    extras.putString("result", resultCode);
-                    mainIntent.putExtras(extras);
+                    mainIntent.putExtra("firstInput", userInput);
+                    setResult(RESULT_CANCELED, mainIntent);
+                    finish();
                 }
-                startActivity(mainIntent);
             }
             return false;
         }
     };
 }
+
